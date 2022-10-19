@@ -1,6 +1,7 @@
 package core;
 
-import ai.BFS;
+import ai.DFS;
+
 import model.Board;
 import model.Node;
 
@@ -13,6 +14,9 @@ public class main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+
+
         System.out.println(" please enter the goal value : \n then enter rows and columns and your board");
         int goalValue = Integer.parseInt(sc.nextLine());
         String mn = sc.nextLine();
@@ -38,7 +42,9 @@ public class main {
 //        BFS bfs = new BFS();
 //        DFS dfs = new DFS();
 //        dfs.search(start);
-        BFS bfs = new BFS();
-        bfs.search(start);
+        DFS dfs = new DFS();
+        dfs.search(start);
+        System.out.println("test");
+
     }
 }
