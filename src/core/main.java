@@ -1,6 +1,8 @@
 package core;
 
 import ai.DFS;
+import ai.BFS;
+import ai.IDS;
 
 import model.Board;
 import model.Node;
@@ -42,9 +44,11 @@ public class main {
 //        BFS bfs = new BFS();
 //        DFS dfs = new DFS();
 //        dfs.search(start);
-        DFS dfs = new DFS();
-        dfs.search(start);
-        System.out.println("test");
-
+//        DFS dfs = new DFS();
+//        dfs.search(start);
+//        bfs.search(start);
+        IDS ids = new IDS();
+        ids.search(start, 6);
+//        System.out.println("test");
     }
 }

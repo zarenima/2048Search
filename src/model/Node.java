@@ -8,19 +8,28 @@ public class Node {
     Board board;
     Node parent;
     Movement previousMovement;
+    public int depth;
 
-    public Node(Board board, Node parent, Movement previousMovement) {
+    public Node(Board board, Node parent, Movement previousMovement, int depth) {
         this.parent = parent;
         this.board = board;
         this.previousMovement = previousMovement;
+        this.depth = depth;
+    }
+
+    public Node(Board board, Node parent, Movement previousMovement){
+        this.parent = parent;
+        this.board = board;
+        this.previousMovement = previousMovement;
+        this.depth = 0;
     }
 
     public ArrayList<Node> successor() {
         ArrayList<Node> result = new ArrayList<Node>();
-        result.add(new Node(board.moveLeft(), this, Movement.LEFT));
-        result.add(new Node(board.moveRight(), this, Movement.RIGHT));
-        result.add(new Node(board.moveDown(), this, Movement.DOWN));
-        result.add(new Node(board.moveUp(), this, Movement.UP));
+        result.add(new Node(board.moveLeft(), this, Movement.LEFT, this.depth + 1));
+        result.add(new Node(board.moveRight(), this, Movement.RIGHT, this.depth + 1));
+        result.add(new Node(board.moveDown(), this, Movement.DOWN, this.depth + 1));
+        result.add(new Node(board.moveUp(), this, Movement.UP, this.depth + 1));
         return result;
     }
 
