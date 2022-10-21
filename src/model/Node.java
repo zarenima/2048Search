@@ -78,6 +78,16 @@ public class Node implements Comparable<Node>{
     @Override
     public int compareTo(Node node) {
         // return node.board.highest_lower();
-        return node.depth;
+
+        if (this.depth > node.depth) {
+
+            return 1;
+        } else if (this.depth < node.depth) {
+
+            return -1;
+        } else {
+
+            return 0;
+        }
     }
 }
