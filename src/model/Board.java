@@ -122,6 +122,17 @@ public class Board {
             }
         }
     }
+    public int highest_lower(){
+        int result = 0;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (cells[i][j] > result && cells[i][j] <= goalValue) {
+                    result = cells[i][j];
+                }
+            }
+        }
+        return result;
+    }
 
 
     @Override

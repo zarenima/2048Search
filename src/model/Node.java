@@ -4,7 +4,7 @@ import core.Constants;
 
 import java.util.ArrayList;
 
-public class Node {
+public class Node implements Comparable<Node>{
     Board board;
     Node parent;
     Movement previousMovement;
@@ -73,5 +73,11 @@ public class Node {
 
     public Node getParent() {
         return parent;
+    }
+
+    @Override
+    public int compareTo(Node node) {
+        // return node.board.highest_lower();
+        return node.depth;
     }
 }

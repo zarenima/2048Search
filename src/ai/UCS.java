@@ -21,7 +21,7 @@ public class UCS {
         inFrontier.put(startNode.hash(), true);
         while (!frontier.isEmpty()) {
             Node temp = frontier.poll();
-            inFrontier.remove(temp.hash());
+            // inFrontier.remove(temp.hash());
             ArrayList<Node> children = temp.successor();
             for (Node child : children) {
                 if (!(inFrontier.containsKey(child.hash()))) {

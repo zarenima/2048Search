@@ -3,6 +3,7 @@ package core;
 import ai.DFS;
 import ai.BFS;
 import ai.IDS;
+import ai.UCS;
 
 import model.Board;
 import model.Node;
@@ -42,13 +43,12 @@ public class main {
         Hashtable<String, Boolean> initHash = new Hashtable<>();
         Node start = new Node(gameBoard, null, NONE);
 //        BFS bfs = new BFS();
-//        DFS dfs = new DFS();
-//        dfs.search(start);
-//        DFS dfs = new DFS();
-//        dfs.search(start);
+    //    DFS dfs = new DFS();
+    //    dfs.search(start);
 //        bfs.search(start);
-        IDS ids = new IDS();
-        ids.search(start, 6);
-//        System.out.println("test");
+        // IDS ids = new IDS();
+        // ids.search(start, 3);
+        UCS ucs = new UCS();
+        ucs.search(start);
     }
 }
