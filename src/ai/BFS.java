@@ -22,7 +22,7 @@ public class BFS {
         while (!frontier.isEmpty()) {
             Node temp = frontier.poll();
             // inFrontier.remove(temp.hash()); otherwise, we get stuck on infinite loop
-            ArrayList<Node> children = temp.successor();
+            ArrayList<Node> children = temp.successor(false);
             for (Node child : children) {
                 if (!(inFrontier.containsKey(child.hash()))) {
                     if (child.isGoal()) {

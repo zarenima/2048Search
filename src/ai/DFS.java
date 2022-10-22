@@ -25,7 +25,7 @@ public class DFS {
 
             exp.put(temp.hash(), true);
 
-            ArrayList<Node> children = temp.successor();
+            ArrayList<Node> children = temp.successor(false);
             for (Node child : children) {
                 if (!((inFrontier.containsKey(child.hash()))|| (exp.containsKey(child.hash())) ) ){
                     if (child.isGoal()) {

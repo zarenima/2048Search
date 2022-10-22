@@ -24,18 +24,29 @@ public class Node implements Comparable<Node>{
         this.depth = 0;
     }
 
-    public ArrayList<Node> successor() {
+    public ArrayList<Node> successor(boolean ucs) {
+        int cl = 1 ;
+        int cr = 1 ;
+        int cd = 1 ;
+        int cu = 1 ;
+
+        if(ucs==true){
+            cl = 1;
+            cr = 3 ;
+            cd = 5 ;
+            cu = 7; 
+        }
         ArrayList<Node> result = new ArrayList<Node>();
-        result.add(new Node(board.moveLeft(), this, Movement.LEFT, this.depth + 1));
-        result.add(new Node(board.moveRight(), this, Movement.RIGHT, this.depth + 3));
-        result.add(new Node(board.moveDown(), this, Movement.DOWN, this.depth + 5));
-        result.add(new Node(board.moveUp(), this, Movement.UP, this.depth + 7));
+        result.add(new Node(board.moveLeft(), this, Movement.LEFT, this.depth + cl));
+        result.add(new Node(board.moveRight(), this, Movement.RIGHT, this.depth + cr));
+        result.add(new Node(board.moveDown(), this, Movement.DOWN, this.depth + cd));
+        result.add(new Node(board.moveUp(), this, Movement.UP, this.depth + cu));
         return result;
     }
 
-    public void drawState(boolean with_depth) {
+    public void drawState(boolean ucs) {
         System.out.println("moved to : " + this.previousMovement);
-        if(with_depth==true)System.out.println("depth: " + this.depth);
+        if(ucs==true)System.out.println("depth: " + this.depth);
         for (int i = 0; i < board.row; i++) {
             for (int j = 0; j < board.col; j++) {
                 System.out.print(Constants.ANSI_BRIGHT_GREEN + board.cells[i][j] + spaceRequired(board.cells[i][j]));

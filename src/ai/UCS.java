@@ -23,7 +23,7 @@ public class UCS {
             Node temp = frontier.poll();
           //  System.out.println(temp.depth);
             // inFrontier.remove(temp.hash());
-            ArrayList<Node> children = temp.successor();
+            ArrayList<Node> children = temp.successor(true);
             for (Node child : children) {
                 if (!(inFrontier.containsKey(child.hash()))) {
                     if (child.isGoal()) {
