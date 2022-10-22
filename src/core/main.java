@@ -41,16 +41,15 @@ public class main {
         System.out.println(gameBoard.toString());
 
         Hashtable<String, Boolean> initHash = new Hashtable<>();
-        Node start = new Node(gameBoard, null, NONE);
-
-//      BFS bfs = new BFS();
-//      DFS dfs = new DFS();
-//      dfs.search(start);
-//      bfs.search(start);
-//      IDS ids = new IDS();
-//      ids.search(start, 3);
-
+    //  Node start = new Node(gameBoard, null, NONE);
+    //  BFS bfs = new BFS();
+    //  bfs.search(start);
+    //  DFS dfs = new DFS();
+    //  dfs.search(start);
+    //  IDS ids = new IDS();
+    //  ids.search(start, 10);
+        Node start_ucs = new Node(gameBoard, null, NONE,0);
         UCS ucs = new UCS();
-        ucs.search(start);
+        ucs.search(start_ucs);
     }
 }

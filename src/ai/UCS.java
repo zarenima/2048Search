@@ -21,6 +21,7 @@ public class UCS {
         inFrontier.put(startNode.hash(), true);
         while (!frontier.isEmpty()) {
             Node temp = frontier.poll();
+          //  System.out.println(temp.depth);
             // inFrontier.remove(temp.hash());
             ArrayList<Node> children = temp.successor();
             for (Node child : children) {
@@ -40,12 +41,12 @@ public class UCS {
 
     public void printResult(Node node, int depthCounter) {
         if (node.getParent() == null) {
-            System.out.println("problem solved at a depth of  : " + depthCounter);
+            System.out.println("depth is written in the first step");
             return;
         }
         System.out.println(node.toString());
-        node.drawState();
-        printResult(node.getParent(), depthCounter + 1);
+        node.drawState(true);
+        printResult(node.getParent(), node.getParent().depth);
     }
 
     

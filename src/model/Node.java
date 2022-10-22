@@ -27,14 +27,15 @@ public class Node implements Comparable<Node>{
     public ArrayList<Node> successor() {
         ArrayList<Node> result = new ArrayList<Node>();
         result.add(new Node(board.moveLeft(), this, Movement.LEFT, this.depth + 1));
-        result.add(new Node(board.moveRight(), this, Movement.RIGHT, this.depth + 1));
-        result.add(new Node(board.moveDown(), this, Movement.DOWN, this.depth + 1));
-        result.add(new Node(board.moveUp(), this, Movement.UP, this.depth + 1));
+        result.add(new Node(board.moveRight(), this, Movement.RIGHT, this.depth + 3));
+        result.add(new Node(board.moveDown(), this, Movement.DOWN, this.depth + 5));
+        result.add(new Node(board.moveUp(), this, Movement.UP, this.depth + 7));
         return result;
     }
 
-    public void drawState() {
+    public void drawState(boolean with_depth) {
         System.out.println("moved to : " + this.previousMovement);
+        if(with_depth==true)System.out.println("depth: " + this.depth);
         for (int i = 0; i < board.row; i++) {
             for (int j = 0; j < board.col; j++) {
                 System.out.print(Constants.ANSI_BRIGHT_GREEN + board.cells[i][j] + spaceRequired(board.cells[i][j]));
@@ -78,16 +79,6 @@ public class Node implements Comparable<Node>{
     @Override
     public int compareTo(Node node) {
         // return node.board.highest_lower();
-
-        if (this.depth > node.depth) {
-
-            return 1;
-        } else if (this.depth < node.depth) {
-
-            return -1;
-        } else {
-
-            return 0;
-        }
+        return this.depth- node.depth;
     }
 }

@@ -47,7 +47,7 @@ public class DFS {
             return;
         }
         System.out.println(node.toString());
-        node.drawState();
+        node.drawState(false);
         printResult(node.getParent(), depthCounter + 1);
     }
 }
