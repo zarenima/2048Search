@@ -4,18 +4,28 @@ import core.Constants;
 
 import static model.Movement.*;
 
+import java.util.ArrayList;
+
 public class Board {
     int row;
     int col;
     int goalValue;
     int[][] cells;
+    public static ArrayList<Integer> half;
     public static int mode = Constants.MODE_NORMAL;
 
-    public Board(int row, int col, int[][] cells, int goalValue) {
+    public Board(int row, int col, int[][] cells, int goalValue ) {
         this.cells = cells;
         this.row = row;
         this.col = col;
         this.goalValue = goalValue;
+        int gv = goalValue;
+        half = new ArrayList<>();
+        while(gv%2==0){
+            half.add(gv);
+            gv/=2;
+        }
+        half.add(gv);
     }
 
 
@@ -122,17 +132,7 @@ public class Board {
             }
         }
     }
-    public int highest_lower(){
-        int result = 0;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                if (cells[i][j] > result && cells[i][j] <= goalValue) {
-                    result = cells[i][j];
-                }
-            }
-        }
-        return result;
-    }
+    
 
 
     @Override

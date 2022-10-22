@@ -67,7 +67,36 @@ public class Node implements Comparable<Node>{
 
     public int heuristic() {
         // TODO: 2/16/2022 implement heuristic function
-        return 0;
+        int result = 0;
+        if(Board.mode==Constants.MODE_ADVANCE){
+            for (Integer half : Board.half) {
+                int con = 0 ; 
+                for (int i = 0; i < this.board.row; i++) {
+                    for (int j = 0; j < this.board.col; j++) {
+                        if (this.board.cells[i][j]==half) {
+                            con++ ;
+                        }
+                    }
+                }
+                if(con>=2){
+                    result = half ; 
+                    break ;
+                }else{
+                    result = -1 ; 
+                }
+            }
+           
+        }else{
+            for (int i = 0; i < this.board.row; i++) {
+                for (int j = 0; j < this.board.col; j++) {
+                    if (this.board.cells[i][j] > result && this.board.cells[i][j] <= this.board.goalValue) {
+                        result = this.board.cells[i][j];
+                    }
+                }
+            }
+        }
+        return result;
+        // return 0;
     }
 
     public String hash() {
@@ -87,9 +116,16 @@ public class Node implements Comparable<Node>{
         return parent;
     }
 
+    // public int highest_lower(){
+        
+    // }
+
     @Override
     public int compareTo(Node node) {
-        // return node.board.highest_lower();
-        return this.depth- node.depth;
+        //return node.board.highest_lower();
+        // astar
+        return (this.heuristic()+ this.depth) - (node.heuristic() + node.depth) ;
+    
+
     }
 }

@@ -4,6 +4,7 @@ import ai.DFS;
 import ai.BFS;
 import ai.IDS;
 import ai.UCS;
+import ai.Astar;
 
 import model.Board;
 import model.Node;
@@ -38,6 +39,7 @@ public class main {
         int[][] cells = mapper.createCells(board, rows, columns);
         Board gameBoard = mapper.createBoard(cells, goalValue, rows, columns);
         Board.mode = Constants.MODE_NORMAL;
+
         System.out.println(gameBoard.toString());
 
         Hashtable<String, Boolean> initHash = new Hashtable<>();
@@ -49,7 +51,7 @@ public class main {
     //  IDS ids = new IDS();
     //  ids.search(start, 10);
         Node start_ucs = new Node(gameBoard, null, NONE,0);
-        UCS ucs = new UCS();
-        ucs.search(start_ucs);
+        Astar Astar = new Astar();
+        Astar.search(start_ucs);
     }
 }
