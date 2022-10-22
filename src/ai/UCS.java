@@ -21,16 +21,17 @@ public class UCS {
         inFrontier.put(startNode.hash(), true);
         while (!frontier.isEmpty()) {
             Node temp = frontier.poll();
+            if (temp.isGoal()) {
+                printResult(temp, 0);
+                System.out.println("you win !!!");
+                return;
+            }
           //  System.out.println(temp.depth);
             // inFrontier.remove(temp.hash());
             ArrayList<Node> children = temp.successor(true);
             for (Node child : children) {
                 if (!(inFrontier.containsKey(child.hash()))) {
-                    if (child.isGoal()) {
-                        printResult(child, 0);
-                        System.out.println("you win !!!");
-                        return;
-                    }
+                    
                     frontier.add(child);
                     inFrontier.put(child.hash(), true);
                 }
