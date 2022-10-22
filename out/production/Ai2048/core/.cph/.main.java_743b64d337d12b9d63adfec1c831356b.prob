@@ -1,0 +1,1 @@
+{"name":"Local: main","url":"e:\\fum\\git\\nameless\\src\\core\\main.java","tests":[{"id":1666425130517,"input":"128\n4 4\n8 8 8 8\n12 12 12 0\n40 0 10 10\n0 0 15 5","output":""},{"id":1666425353207,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\fum\\git\\nameless\\src\\core\\main.java","group":"local","local":true}
