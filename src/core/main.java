@@ -38,7 +38,7 @@ public class main {
         Mapper mapper = new Mapper();
         int[][] cells = mapper.createCells(board, rows, columns);
         Board gameBoard = mapper.createBoard(cells, goalValue, rows, columns);
-        Board.mode = Constants.MODE_ADVANCE;
+        Board.mode = Constants.MODE_NORMAL;
 
         System.out.println(gameBoard.toString());
 

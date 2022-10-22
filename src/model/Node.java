@@ -74,9 +74,7 @@ public class Node implements Comparable<Node>{
                 for (int i = 0; i < this.board.row; i++) {
                     for (int j = 0; j < this.board.col; j++) {
                         if (this.board.cells[i][j]==half) {
-//                            con++ ;
-//                            finding the largest number 
-                            return half;
+                            con++ ;
                         }
                     }
                 }
@@ -126,9 +124,8 @@ public class Node implements Comparable<Node>{
     public int compareTo(Node node) {
         //return node.board.highest_lower();
         // astar
-//        return (this.heuristic()+ this.depth) - (node.heuristic() + node.depth) ;
-        return (node.heuristic() + node.depth) - (this.heuristic()+ this.depth) ;
-
+        return (this.heuristic()+ this.depth) - (node.heuristic() + node.depth) ;
+    
 
     }
 }
