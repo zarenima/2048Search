@@ -69,22 +69,16 @@ public class Node implements Comparable<Node>{
         // TODO: 2/16/2022 implement heuristic function
         int result = 0;
         if(Board.mode==Constants.MODE_ADVANCE){
-            for (Integer half : Board.half) {
-                int con = 0 ; 
-                for (int i = 0; i < this.board.row; i++) {
-                    for (int j = 0; j < this.board.col; j++) {
-                        if (this.board.cells[i][j]==half) {
-                            con++ ;
+                result = 0 ; 
+                for (int i = 1; i < this.board.row-1; i++) {
+                    for (int j = 1; j < this.board.col-1; j++) {
+                        if (this.board.cells[i][j]==0) {
+                            result++ ;
                         }
                     }
                 }
-                if(con>=2){
-                    result = half ; 
-                    break ;
-                }else{
-                    result = -1 ; 
-                }
-            }
+                
+            
            
         }else{
             for (int i = 0; i < this.board.row; i++) {
@@ -124,7 +118,7 @@ public class Node implements Comparable<Node>{
     public int compareTo(Node node) {
         //return node.board.highest_lower();
         // astar
-        return (this.heuristic()+ this.depth) - (node.heuristic() + node.depth) ;
+        return  -(this.heuristic()) + (node.heuristic()) ;
     
 
     }
