@@ -70,8 +70,8 @@ public class Node implements Comparable<Node>{
         int result = 0;
         if(Board.mode==Constants.MODE_ADVANCE){
                 result = 0 ; 
-                for (int i = 1; i < this.board.row-1; i++) {
-                    for (int j = 1; j < this.board.col-1; j++) {
+                for (int i = 0; i < this.board.row; i++) {
+                    for (int j = 0; j < this.board.col; j++) {
                         if (this.board.cells[i][j]==0) {
                             result++ ;
                         }
