@@ -118,7 +118,7 @@ public class Node implements Comparable<Node>{
     public int compareTo(Node node) {
         //return node.board.highest_lower();
         // astar
-        return  -(this.heuristic()) + (node.heuristic()) ;
+        return  -(this.heuristic() + this.depth) + (node.heuristic() + node.depth) ;
     
 
     }
